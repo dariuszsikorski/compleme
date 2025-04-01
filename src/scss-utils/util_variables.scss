@@ -1,0 +1,42 @@
+// Color variables
+$primary-color: #646cff;
+$primary-color-dark: #535bf2;
+$text-color: #213547;
+$background-color: #ffffff;
+$dark-background: #242424;
+$dark-text-color: rgba(255, 255, 255, 0.87);
+
+// Spacing variables
+$spacing-small: 8px;
+$spacing-medium: 16px;
+$spacing-large: 24px;
+
+// Breakpoints
+$breakpoint-mobile: 480px;
+$breakpoint-tablet: 768px;
+$breakpoint-desktop: 1024px;
+
+// Mixins
+@mixin flex-center {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+@mixin responsive-font($min-size, $max-size, $min-screen, $max-screen) {
+  font-size: $min-size;
+  
+  @media screen and (min-width: $min-screen) {
+    font-size: calc(#{$min-size} + #{strip-unit($max-size - $min-size)} * 
+      ((100vw - #{$min-screen}) / #{strip-unit($max-screen - $min-screen)}));
+  }
+  
+  @media screen and (min-width: $max-screen) {
+    font-size: $max-size;
+  }
+}
+
+// Helper function
+@function strip-unit($value) {
+  @return $value / ($value * 0 + 1);
+}
