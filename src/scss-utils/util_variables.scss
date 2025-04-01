@@ -1,3 +1,5 @@
+@use "sass:math";
+
 // Color variables
 $primary-color: #646cff;
 $primary-color-dark: #535bf2;
@@ -38,5 +40,5 @@ $breakpoint-desktop: 1024px;
 
 // Helper function
 @function strip-unit($value) {
-  @return $value / ($value * 0 + 1);
+  @return math.div($value, ($value * 0 + 1));
 }

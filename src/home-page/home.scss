@@ -38,7 +38,9 @@ body {
   
   &_subtitle {
     @include utils.responsive-font(1em, 1.5em, utils.$breakpoint-mobile, utils.$breakpoint-desktop);
-    margin-bottom: utils.$spacing-large;
+    & {
+      margin-bottom: utils.$spacing-large;
+    }
   }
   
   &_counter-container {
