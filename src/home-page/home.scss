@@ -31,15 +31,18 @@ body {
   }
   
   &_title {
-    font-size: 3.2em;
+    font-size: utils.scaled(32px, 52px);
     line-height: 1.1;
     color: var(--primary-color);
   }
   
   &_subtitle {
-    @include utils.responsive-font(1em, 1.5em, utils.$breakpoint-mobile, utils.$breakpoint-desktop);
+    // Using the new scaled function for font-size
+    font-size: utils.scaled(16px, 24px);
     & {
       margin-bottom: utils.$spacing-large;
+      // Using scaled function for padding
+      padding: utils.scaled(12px, 20px);
     }
   }
   

@@ -38,7 +38,15 @@ $breakpoint-desktop: 1024px;
   }
 }
 
-// Helper function
+// Helper functions
 @function strip-unit($value) {
   @return math.div($value, ($value * 0 + 1));
+}
+
+@function scaled($beg: 10px, $end: 30px, $min_width: 320px, $max_width: 1920px) {
+  $svw: math.div($min_width, 100);
+  $bvw: math.div($max_width, 100);
+  $x: math.div(($svw * $end - $bvw * $beg), ($svw - $bvw));
+  $y: math.div(($beg - $end), ($svw - $bvw));
+  @return clamp(#{$beg}, calc(#{$x} + #{$y} * 1vw), #{$end});
 }
