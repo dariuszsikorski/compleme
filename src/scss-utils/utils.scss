@@ -1,4 +1,5 @@
-@import 'util_variables';
+@forward 'util_variables';
+@use 'util_variables' as *;
 
 // Common utility classes
 .u-container {

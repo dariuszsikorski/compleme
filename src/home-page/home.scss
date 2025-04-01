@@ -1,5 +1,4 @@
-@import '../scss-utils/util_variables';
-@import '../scss-utils/utils';
+@use '../scss-utils/utils' as utils;
 
 body {
   margin: 0;
@@ -11,7 +10,7 @@ body {
 }
 
 #app {
-  @include flex-center;
+  @include utils.flex-center;
   flex-direction: column;
   max-width: 1280px;
   margin: 0 auto;
@@ -22,12 +21,12 @@ body {
 .home-page {
   &_logo {
     height: 6em;
-    padding: $spacing-medium;
+    padding: utils.$spacing-medium;
     will-change: filter;
     transition: filter 300ms;
     
     &:hover {
-      filter: drop-shadow(0 0 2em $primary-color);
+      filter: drop-shadow(0 0 2em utils.$primary-color);
     }
   }
   
@@ -38,15 +37,27 @@ body {
   }
   
   &_subtitle {
-    @include responsive-font(1em, 1.5em, $breakpoint-mobile, $breakpoint-desktop);
-    margin-bottom: $spacing-large;
+    @include utils.responsive-font(1em, 1.5em, utils.$breakpoint-mobile, utils.$breakpoint-desktop);
+    margin-bottom: utils.$spacing-large;
   }
   
   &_counter-container {
-    @include flex-center;
+    @include utils.flex-center;
   }
   
   &_counter {
-    @extend .u-button;
+    // Apply button styles directly instead of extending
+    background-color: utils.$primary-color;
+    color: white;
+    border: none;
+    padding: utils.$spacing-small utils.$spacing-medium;
+    border-radius: 4px;
+    font-weight: 500;
+    cursor: pointer;
+    transition: background-color 0.3s;
+    
+    &:hover {
+      background-color: utils.$primary-color-dark;
+    }
   }
 }

@@ -9,7 +9,7 @@ document.querySelector<HTMLDivElement>('#app')!.innerHTML = `
     </a>
     <h1 class="home-page_title">Compleme</h1>
     <h2 class="home-page_subtitle">A complementary set of utils for web app &amp; ui development</h2>
-    <div class="home-page_counter-container u-flex-center">
+    <div class="home-page_counter-container">
       <button id="counter" class="home-page_counter" type="button">Count is 0</button>
     </div>
   </div>
